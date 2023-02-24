@@ -19,7 +19,7 @@ def main():
     while turns > 0:
         print_ships(PLAYER_BOARD)
         row, column = enemy_ships()
-        #print_ships(HIDDEN_BOARD) Print enemy board before your shot. 
+        print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
         if HIDDEN_BOARD[row][column] == "X":
             print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
@@ -31,14 +31,18 @@ def main():
             turns -= 1
         elif HIDDEN_BOARD[row][column] == "-":
             print("Guessed already")
-        print("You have", turns, "turns remaining")
+        print("You have", turns, "shots remaining")
         score = count_hit_ships()
-        print("You need to hit at least", SHIP_AMOUNT, "ships to win the game.")
-        if score == SHIP_AMOUNT:
+        print("You need to hit at least", BOARDSIZE, "ships to win the game.")
+        print("You currently hit", score, "ships")
+        if score == BOARDSIZE:
             print("Success, you've sunk the entire Navy")
             break
         if turns == 0:
             print("Sucker ")
+            break
+        if turns < BOARDSIZE:
+            print("Oh no! The Navy has invaded your private space")
             break
 
 
@@ -89,7 +93,6 @@ def enemy_ships():
     row = input("Pick a row between 1 & " + str(BOARDSIZE) + ": \n")
     input_empty = row == ""
     while input_empty or row not in numbers[0: BOARDSIZE]:
-    #while row not in numbers[0: BOARDSIZE] and input_empty:
         print("You were supposed to pick a number between 1 & "+ str(BOARDSIZE))
         row = input("Let's try again. Pick a number between 1 & "+ str(BOARDSIZE) + ": \n")
         if len(row) == 1 and row in numbers[0: BOARDSIZE]:
