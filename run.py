@@ -19,7 +19,7 @@ def main():
     while turns > 0:
         print_ships(PLAYER_BOARD)
         row, column = enemy_ships()
-        print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
+        #print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
         if HIDDEN_BOARD[row][column] == "X":
             print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
