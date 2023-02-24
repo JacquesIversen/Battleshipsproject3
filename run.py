@@ -19,7 +19,7 @@ def main():
     while turns > 0:
         print_ships(PLAYER_BOARD)
         row, column = enemy_ships()
-        #print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
+        print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
         if HIDDEN_BOARD[row][column] == "X":
             print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
@@ -33,16 +33,16 @@ def main():
             print("Guessed already")
         print("You have", turns, "shots remaining")
         score = count_hit_ships()
-        print("You need to hit at least", BOARDSIZE, "ships to win the game.")
+        print(BOARDSIZE - score, "more hits to win the game.")
         print("You currently hit", score, "ships")
         if score == BOARDSIZE:
-            print("Success, you've sunk the entire Navy")
+            print("Success, you've sunk the invading Naval Officer")
             break
         if turns == 0:
-            print("Sucker ")
+            print("Sucker, how did you actually manage to lose?")
             break
-        if turns < BOARDSIZE:
-            print("Oh no! The Navy has invaded your private space")
+        if turns < BOARDSIZE - score:
+            print("Oh no! You are CheckMate.....")
             break
 
 
@@ -80,9 +80,9 @@ def create_ships():
     global SHIP_AMOUNT
     SHIP_AMOUNT = BOARDSIZE * 2
     for ship in range(SHIP_AMOUNT):
-        row, column = randint(0, BOARDSIZE-1), randint(0, BOARDSIZE-1) #Index Array
+        row, column = randint(0, BOARDSIZE-1), randint(0, BOARDSIZE-1)
         while HIDDEN_BOARD[row][column] == "X":
-            row, column = randint(0, BOARDSIZE-1), randint(0, BOARDSIZE-1) #Index Array
+            row, column = randint(0, BOARDSIZE-1), randint(0, BOARDSIZE-1)
         HIDDEN_BOARD[row][column] = "X"
 
 
