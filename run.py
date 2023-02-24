@@ -1,12 +1,13 @@
 from random import randint
 
+
 def main():
     global BOARDSIZE
     BOARDSIZE = 0
-    print("gamestart")
+    print("Welcome to the unbeatable Battleship Navy")
     while BOARDSIZE not in range(5, 10):
         try: 
-            BOARDSIZE = input("Enter board size inbetween 5-9: ")
+            BOARDSIZE = input("Enter board size inbetween 5-9: \n")
             BOARDSIZE = int(BOARDSIZE)  #Only int from user
         except ValueError:
             print("Sorry, please pick a number between 5-9")
@@ -16,17 +17,15 @@ def main():
     #print_ships(HIDDEN_BOARD)
     turns = BOARDSIZE * 3
     while turns > 0:
-        print("Pick a guess for your strike")
         print_ships(PLAYER_BOARD)
-        print('Guess a battleship location')
         row, column = enemy_ships()
         #print_ships(HIDDEN_BOARD) Print enemy board before your shot. 
         if HIDDEN_BOARD[row][column] == "X":
-            print("Youve sunk my battelship")
+            print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
             turns -= 1
         elif HIDDEN_BOARD[row][column] == " ":
-            print("Missed Bitch")
+            print("'Splash' is the sound of a miss....")
             HIDDEN_BOARD[row][column] = "-"
             PLAYER_BOARD[row][column] = "-"
             turns -= 1
@@ -34,6 +33,7 @@ def main():
             print("Guessed already")
         print("You have", turns, "turns remaining")
         score = count_hit_ships()
+        print("You need to hit at least", SHIP_AMOUNT, "ships to win the game.")
         if score == SHIP_AMOUNT:
             print("Success, you've sunk the entire Navy")
             break
@@ -82,23 +82,24 @@ def create_ships():
         HIDDEN_BOARD[row][column] = "X"
 
 
+
 def enemy_ships():
     alphabet = "ABCDEFGHI"
     numbers = "123456789"
-    row = input("Place a value between 1 & " + str(BOARDSIZE) + ": ")
+    row = input("Pick a row between 1 & " + str(BOARDSIZE) + ": \n")
     input_empty = row == ""
     while input_empty or row not in numbers[0: BOARDSIZE]:
     #while row not in numbers[0: BOARDSIZE] and input_empty:
-        print("You were supposed to pick a number")
-        row = input("Let's try again. Pick a number between 1 & "+ str(BOARDSIZE) + ": ")
-        if len(row) == 1:
+        print("You were supposed to pick a number between 1 & "+ str(BOARDSIZE))
+        row = input("Let's try again. Pick a number between 1 & "+ str(BOARDSIZE) + ": \n")
+        if len(row) == 1 and row in numbers[0: BOARDSIZE]:
             input_empty = False
-    column = input("Place a latitude value from A - " + str(alphabet[BOARDSIZE - 1])+ ": ").upper()
+    column = input("Place a latitude letter from A - " + str(alphabet[BOARDSIZE - 1])+ ": \n").upper()
     input_empty = column == ""
     while column not in alphabet[0: BOARDSIZE] or input_empty:
         print("I though you understood the rules here.. -.-")
-        column = input("A letter from A - " + str(alphabet[BOARDSIZE - 1])+ " please: ").upper()
-        if len(column) == 1:
+        column = input("A letter from A - " + str(alphabet[BOARDSIZE - 1])+ " please: \n").upper()
+        if len(column) == 1 and column in alphabet[0: BOARDSIZE]:
             input_empty = False
     return int(row) - 1, letters_to_numbers[column]
 
