@@ -1,29 +1,5 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![battleshipgif](https://user-images.githubusercontent.com/116496979/221361050-c7d792fe-8b53-4e69-a3d2-f3b5f8a0e2c6.gif)
 
-Welcome JacquesIversen,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
 
 # Battleships Game
 Introduction
@@ -61,10 +37,14 @@ The game will be played on a grid of variable size, where the player will use th
 ## Features
 --- 
 ### Starting a New Game
-- The user can start a new game by running the program. The program will prompt the user to set the grid size and display the output.
+- The user can start a new game by running the program. The program will prompt the user to set the grid size and display the output. (This example will use input:5 )
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/7rSwT7M/Screen-Shot-2023-02-25-at-2-22-53-PM.png" alt="Screen-Shot-2023-02-25-at-2-22-53-PM" border="0"></a>
 
 ### Setting the Grid Size
-- The user can set the grid size by entering a number between 5 & 9
+- The user can set the grid size by entering a number between 5 & 9 
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/72998gt/Screen-Shot-2023-02-25-at-2-23-01-PM.png" alt="Screen-Shot-2023-02-25-at-2-23-01-PM" border="0"></a>
 
 | Input | Grid size | Enemys | Points to win | Turns |
 | ------ | ------ | ------ | ------ | ----- |
@@ -75,17 +55,30 @@ The game will be played on a grid of variable size, where the player will use th
 | 9 | 81 | 18 | 9 | 27 |
 
 
+
 ### Placing Battleships
 - The computer will randomly place 2 times the prompted data in ships. 
 
 ### Calling Shots
-- The user can call shots on the computer's ships by entering the coordinates they would like to target.
+- The user can call shots on the computer's ships by entering the coordinates they would like to target. First they'll type a longitutude value in numbers. Second they'll type a latitude value in letters. The Program will not allow empty input, or higher/lower input than asked upon. 
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/6nZmYDQ/Screen-Shot-2023-02-25-at-2-23-19-PM.png" alt="Screen-Shot-2023-02-25-at-2-23-19-PM" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ZzPt9zp/Screen-Shot-2023-02-25-at-2-23-29-PM.png" alt="Screen-Shot-2023-02-25-at-2-23-29-PM" border="0"></a>
+
 
 ### Notification of Hit or Miss
-- The program will notify the user if their shot was a hit or a miss.
+- The program will notify the user if their shot was a hit or a miss. 
+- Hit: X
+- Miss : -
+
 
 ### Notification of Destruction of Ships
-- The program will notify the user when they have destroyed half of the computer's ships.
+- The program will notify the user when they have destroyed half of the computer's ships. The user is not aware of the amount of ships in their enemy fleet. 
+- If amount of hits to win is higher than shots remaining, game will end. 
+- If shots remaining hit 0, game will end. 
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/HG5tgdN/Screen-Shot-2023-02-25-at-2-24-19-PM.png" alt="Screen-Shot-2023-02-25-at-2-24-19-PM" border="0"></a>
+
 
 ## Features Left to Implement
 --- 
@@ -128,7 +121,12 @@ Functional testing has been performed to ensure that all features are working as
 - Additional variables were added to have line > 80 characters
 - Linter-mistakes corrected, mainly "trailing whitespace"
 - 92 % in Pythonchecker (Not recognizing whitespace)
+
+<a href="https://ibb.co/7zxcfZK"><img src="https://i.ibb.co/H2LvSbq/Screen-Shot-2023-02-25-at-1-56-33-PM.png" alt="Screen-Shot-2023-02-25-at-1-56-33-PM" border="0"></a>
+<a href="https://ibb.co/nQjQbHR"><img src="https://i.ibb.co/r5H5mCv/Screen-Shot-2023-02-25-at-1-56-40-PM.png" alt="Screen-Shot-2023-02-25-at-1-56-40-PM" border="0"></a>
 - 0 Faults remaining PEP8.
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/bKCY3dx/Screen-Shot-2023-02-25-at-2-06-09-PM.png" alt="Screen-Shot-2023-02-25-at-2-06-09-PM" border="0"></a>
 
 ## Deployment
 ---
@@ -156,3 +154,4 @@ This project would not have been completed if not for numerous Youtube Heroes, a
 - https://www.youtube.com/watch?v=u3yo-TjeIDg Refactoring, part 1 & 2. 
 - https://www.youtube.com/watch?v=G6JTM-zt-dQ Cloning, used in testing. 
 - https://www.youtube.com/watch?v=QVdf0LgmICw Working with the global/local statement.
+- https://imgbb.com/ for creating an URL on PNG to inout in readme. 
