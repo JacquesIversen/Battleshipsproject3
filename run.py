@@ -8,18 +8,16 @@ def main():
     while BOARDSIZE not in range(5, 10):
         try: 
             BOARDSIZE = input("Enter board size inbetween 5-9: \n")
-            BOARDSIZE = int(BOARDSIZE)  #Only int from user
+            BOARDSIZE = int(BOARDSIZE) 
         except ValueError:
             print("Sorry, please pick a number between 5-9")
     create_board(BOARDSIZE)
-    #print_ships(PLAYER_BOARD)
     create_ships()
-    #print_ships(HIDDEN_BOARD)
     turns = BOARDSIZE * 3
     while turns > 0:
         print_ships(PLAYER_BOARD)
         row, column = enemy_ships()
-        print_ships(HIDDEN_BOARD) #Print enemy board before your shot. 
+        #print_ships(HIDDEN_BOARD) #Remove # to access Enemy Board. 
         if HIDDEN_BOARD[row][column] == "X":
             print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
@@ -67,6 +65,7 @@ letters_to_numbers = {
 
 
 # Creates a platform multiplied by input
+
 def print_ships(create_board):
     alphabet = "A B C D E F G H I J"
     print("  " + alphabet[0: (BOARDSIZE*2)]) 
@@ -92,22 +91,24 @@ def enemy_ships():
     numbers = "123456789"
     row = input("Pick a row between 1 & " + str(BOARDSIZE) + ": \n")
     input_empty = row == ""
+    col_var = str(alphabet[BOARDSIZE - 1])
     while input_empty or row not in numbers[0: BOARDSIZE]:
-        print("You were supposed to pick a number between 1 & "+ str(BOARDSIZE))
-        row = input("Let's try again. Pick a number between 1 & "+ str(BOARDSIZE) + ": \n")
+        print("One is supposed to pick a number between 1 & " + str(BOARDSIZE))
+        row = input("Pick a number between 1 & " + str(BOARDSIZE) + ": \n")
         if len(row) == 1 and row in numbers[0: BOARDSIZE]:
             input_empty = False
-    column = input("Place a latitude letter from A - " + str(alphabet[BOARDSIZE - 1])+ ": \n").upper()
+    column = input("Place a letter between A & " + col_var + ": \n").upper()
     input_empty = column == ""
     while column not in alphabet[0: BOARDSIZE] or input_empty:
         print("I though you understood the rules here.. -.-")
-        column = input("A letter from A - " + str(alphabet[BOARDSIZE - 1])+ " please: \n").upper()
+        column = input("A letter from A - " + col_var + " please: \n").upper()
         if len(column) == 1 and column in alphabet[0: BOARDSIZE]:
             input_empty = False
     return int(row) - 1, letters_to_numbers[column]
 
 
 #check if all ships are hit
+
 def count_hit_ships():
     count = 0
     for row in PLAYER_BOARD:
@@ -121,36 +122,3 @@ def count_hit_ships():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-"""
-if __name__ == "__main__":
-    #create_ships(HIDDEN_BOARD)
-    create_board(size)
-    turns = 10
-    while turns > 0:
-        print('Guess a battleship location')
-        ships(PLAYER_BOARD)
-        row, column = enemy_ships()
-        if PLAYER_BOARD[row][column] == "-":
-            print("You guessed that one already.")
-        elif HIDDEN_BOARD[row][column] == "X":
-            print("Hit")
-            PLAYER_BOARD[row][column] = "X" 
-            turns -= 1  
-        else:
-            print("MISS!")
-            PLAYER_BOARD[row][column] = "-"   
-            turns -= 1     
-        if count_hit_ships(PLAYER_BOARD) == 5:
-            print("You win!")
-            break
-        print("You have " + str(turns) + " turns left")
-        if turns == 0:
-            print("You ran out of turns")
-"""

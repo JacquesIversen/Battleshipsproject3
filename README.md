@@ -121,6 +121,21 @@ Functional testing has been performed to ensure that all features are working as
 -     A letter from A - E please: 
 4. If same / used value is placed, system will run again, not deducting the user a turn.
 
+Bugs and Fixes
+
+Heroku Deployment
+The below steps were followed to deploy this project to Heroku:
+
+Go to Heroku and click "New" to create a new app.
+Choose an app name and region region, click "Create app".
+Go to "Settings" and navigate to Config Vars. Add the following config variables:
+PORT : 8000
+MONGO_URI : (Mongo URI connection string from MongoDB setup)
+Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+The app will now be deployed to heroku
+
 
 
 ---
