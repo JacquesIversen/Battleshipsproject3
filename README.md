@@ -2,7 +2,7 @@
 
 
 # Battleships Game
-Introduction
+## Introduction
 
 This is a Python implementation of the popular Battleships game. The game is played on a grid where a hidden fleet of battleships is marked. The locations of the fleet are concealed from the player. The player take shots at the opponents ships, and the objective of the game is to destroy the opposing player's fleet.
 
@@ -89,7 +89,8 @@ The game will be played on a grid of variable size, where the player will use th
 ## Logical Flow
 --- 
 
-# insert flowchart here.
+<a href="https://ibb.co/GF1Rh8j"><img src="https://i.ibb.co/8XR9hfV/Screen-Shot-2023-02-24-at-8-30-43-PM.png" alt="Screen-Shot-2023-02-24-at-8-30-43-PM" border="0"></a>
+
 1. Start game
 2. Set grid size
 3. Pick a row value
@@ -144,7 +145,7 @@ The below steps were followed to deploy this project to Heroku:
 - Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
 The app will now be deployed to heroku
 
-Live Link:  !!!
+Live Link: https://battleshipsproject3.herokuapp.com/
 
 ## Credits:
 This project would not have been completed if not for numerous Youtube Heroes, and type-copying 4 project before building this one. 
