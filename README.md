@@ -121,25 +121,38 @@ Functional testing has been performed to ensure that all features are working as
 -     A letter from A - E please: 
 4. If same / used value is placed, system will run again, not deducting the user a turn.
 
-Bugs and Fixes
+## Bugs and Fixes
+---
+### Code checked in Pythonchecker.com, following has been adjusted.
+- Double/Two empty lines between all functions & comments.
+- Additional variables were added to have line > 80 characters
+- Linter-mistakes corrected, mainly "trailing whitespace"
+- 92 % in Pythonchecker (Not recognizing whitespace)
+- 0 Faults remaining PEP8.
 
-Heroku Deployment
+## Deployment
+---
+The site was created using the Visual Studio Code editor and pushed to github to the repository Battleshipsproject3.
+
+### Heroku Deployment
 The below steps were followed to deploy this project to Heroku:
 
-Go to Heroku and click "New" to create a new app.
-Choose an app name and region region, click "Create app".
-Go to "Settings" and navigate to Config Vars. Add the following config variables:
-PORT : 8000
-MONGO_URI : (Mongo URI connection string from MongoDB setup)
-Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
-Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
-Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+- Go to Heroku and click "New" to create a new app.
+- Choose an app name and region region, click "Create app".
+- Go to "Settings" and navigate to Config Vars. Add the following config variables:
+- PORT : 8000
+- Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+- Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+- Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
 The app will now be deployed to heroku
 
+Live Link:  !!!
 
-
----
-Deployment
-The application can be deployed locally by running the Python script. No additional setup is required.
-Credits
-Pygame Documentation - Reference for Pygame functionality.
+## Credits:
+This project would not have been completed if not for numerous Youtube Heroes, and type-copying 4 project before building this one. 
+- Deployment, thanks to Codeinstitute's LoveSandwiches project tutorial.
+- PEP8 Validation thanks to StackOverflow.
+- https://www.youtube.com/watch?v=tF1WRCrd_HQ YT link, first used in testing.
+- https://www.youtube.com/watch?v=u3yo-TjeIDg Refactoring, part 1 & 2. 
+- https://www.youtube.com/watch?v=G6JTM-zt-dQ Cloning, used in testing. 
+- https://www.youtube.com/watch?v=QVdf0LgmICw Working with the global/local statement.

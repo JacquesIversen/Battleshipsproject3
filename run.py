@@ -6,9 +6,9 @@ def main():
     BOARDSIZE = 0
     print("Welcome to the unbeatable Battleship Navy")
     while BOARDSIZE not in range(5, 10):
-        try: 
+        try:
             BOARDSIZE = input("Enter board size inbetween 5-9: \n")
-            BOARDSIZE = int(BOARDSIZE) 
+            BOARDSIZE = int(BOARDSIZE)
         except ValueError:
             print("Sorry, please pick a number between 5-9")
     create_board(BOARDSIZE)
@@ -17,7 +17,7 @@ def main():
     while turns > 0:
         print_ships(PLAYER_BOARD)
         row, column = enemy_ships()
-        #print_ships(HIDDEN_BOARD) #Remove # to access Enemy Board. 
+        # print_ships(HIDDEN_BOARD) #Remove # to access Enemy Board.
         if HIDDEN_BOARD[row][column] == "X":
             print("You've sunk my battelship")
             PLAYER_BOARD[row][column] = "X"
@@ -66,9 +66,10 @@ letters_to_numbers = {
 
 # Creates a platform multiplied by input
 
+
 def print_ships(create_board):
     alphabet = "A B C D E F G H I J"
-    print("  " + alphabet[0: (BOARDSIZE*2)]) 
+    print("  " + alphabet[0: (BOARDSIZE*2)])
     row_num = 1
     for row in create_board:
         print("%d|%s|" % (row_num, "|".join(row)))
@@ -83,7 +84,6 @@ def create_ships():
         while HIDDEN_BOARD[row][column] == "X":
             row, column = randint(0, BOARDSIZE-1), randint(0, BOARDSIZE-1)
         HIDDEN_BOARD[row][column] = "X"
-
 
 
 def enemy_ships():
@@ -107,7 +107,8 @@ def enemy_ships():
     return int(row) - 1, letters_to_numbers[column]
 
 
-#check if all ships are hit
+# check if all ships are hit
+
 
 def count_hit_ships():
     count = 0
@@ -119,6 +120,7 @@ def count_hit_ships():
 
 
 # Execute main function, turns will be inputed number.
+
 
 if __name__ == "__main__":
     main()
